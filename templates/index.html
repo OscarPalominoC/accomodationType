@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>ML API</title>
+    
+</head>
+
+<body>
+ <div class="container-fluid col-md-8">
+    <hr />
+	<h1 class="h2">Predict: Accomodation type for travelers.</h1>
+    <hr />
+    <form action="{{ url_for('prediction')}}"method="post">
+        <div class="form-group">
+            <label>Days of stay</label>
+            <input type="number" name="days_of_stay" id="days_of_stay" class="form-control" placeholder="Days of stay" required="required" />
+        </div>
+        <div class="form-group">
+            <label>Genre</label>
+            <select name="genre" id="genre" class="form-control" required="required">
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Age</label>
+            <input type="number" name="age" id="age" class="form-control" placeholder="Age" required="required" />
+        </div>
+        <div class="form-group">
+            <label>Kids?</label>
+            <select name="kids" id="kids" class="form-control" required="required">
+                <option value="0">No kids</option>
+                <option value="1">Has kids</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Country</label>
+            <select name="destination" id="destination" class="form-control" required="required">
+                <option value="AR">Argentina</option>
+                <option value="CO">Colombia</option>
+                <option value="ES">Spain</option>
+                <option value="IT">Italy</option>
+                <option value="NL">Netherlands</option>
+                <option value="PE">Peru</option>
+                <option value="UK">United Kingdom</option>
+                <option value="US">United States</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Predict</button>
+        </div>
+    </form>
+
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
